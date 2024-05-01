@@ -6,11 +6,19 @@ data class BrandModel(
     val picUrl: String = ""
 ) : IDiff {
     override fun areItemsTheSame(item: IDiff): Boolean {
-        TODO("Not yet implemented")
+        return if (item is BrandModel) {
+            id == item.id
+        } else {
+            false
+        }
     }
 
     override fun areContentsTheSame(item: IDiff): Boolean {
-        TODO("Not yet implemented")
+        return if (item is BrandModel) {
+            title == item.title && id == item.id && picUrl == item.picUrl
+        } else {
+            false
+        }
     }
 }
 

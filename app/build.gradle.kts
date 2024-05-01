@@ -3,6 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
     id("com.google.dagger.hilt.android")
+    id("androidx.navigation.safeargs.kotlin")
+    id("kotlin-parcelize")
     kotlin("kapt")
 }
 
@@ -70,6 +72,7 @@ dependencies {
 
     //navigation
     implementation("androidx.navigation:navigation-fragment:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 
     implementation("com.github.bumptech.glide:glide:4.12.0")
     implementation("com.google.code.gson:gson:2.9.1")

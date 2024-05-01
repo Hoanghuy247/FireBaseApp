@@ -8,7 +8,7 @@ open class BaseData<ITEM> {
         private set
     private val listenerList: ArrayList<OnDataChangeListener> = ArrayList()
 
-    open fun  setData(data: List<ITEM>){
+    open fun setData(data: List<ITEM>){
         this.data = data
         notifyDataChanged()
     }

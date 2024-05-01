@@ -1,13 +1,10 @@
 package com.example.firebaseapp.home.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CenterInside
-import com.bumptech.glide.request.RequestOptions
 import com.example.firebaseapp.base.baseRV.BaseListAdapter
 import com.example.firebaseapp.base.baseRV.BaseRecyclerListener
 import com.example.firebaseapp.base.baseRV.BaseViewHolder
@@ -39,7 +36,6 @@ class BannerListAdapter(val viewPager2: ViewPager2) : BaseListAdapter<
         item: SliderModel,
         lis: BaseRecyclerListener<SliderModel>?
     ) {
-        Log.i("HOANG", "bindBannerView: ${item.url}")
         holder.binding as SliderItemContainerBinding
 
         Glide.with(holder.binding.imageSlider.context)

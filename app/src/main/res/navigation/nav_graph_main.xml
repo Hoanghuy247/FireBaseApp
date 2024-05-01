@@ -9,6 +9,18 @@
         android:id="@+id/homeFragment"
         android:name="com.example.firebaseapp.home.HomeFragment"
         android:label="fragment_home2"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_buyFragment"
+            app:destination="@id/buyFragment" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/buyFragment"
+        android:name="com.example.firebaseapp.buy.BuyFragment"
+        android:label="fragment_buy"
+        tools:layout="@layout/fragment_buy" >
+        <argument android:name="ItemModel"
+            app:argType="com.example.firebaseapp.module.ItemModel"/>
+    </fragment>
 </navigation>

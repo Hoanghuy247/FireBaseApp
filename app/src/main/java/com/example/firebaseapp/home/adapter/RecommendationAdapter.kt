@@ -26,7 +26,7 @@ class RecommendationAdapter : BaseListAdapter<
         holder: BaseViewHolder<ViewBinding, ItemModel, BaseRecyclerListener<ItemModel>>,
         position: Int,
         item: ItemModel,
-        lis: BaseRecyclerListener<ItemModel>?
+        listener: BaseRecyclerListener<ItemModel>?
     ) {
         holder.binding as ViewholderRecommendationBinding
 
@@ -34,9 +34,13 @@ class RecommendationAdapter : BaseListAdapter<
         holder.binding.price.text = "$" + item.price
         holder.binding.rate.text = item.rating.toString()
 
-        Glide.with(holder.itemView.context)
-            .load(item.picUrl)
+        Glide.with(holder.binding.pic.context)
+            .load(item.picUrl[0])
             .apply(RequestOptions().transform(CenterCrop()))
             .into(holder.binding.pic)
+
+        holder.binding.root.setOnClickListener {
+            listener?.itemClick(position, item)
+        }
     }
 }

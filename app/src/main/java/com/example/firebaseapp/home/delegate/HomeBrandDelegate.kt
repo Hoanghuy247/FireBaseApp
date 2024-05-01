@@ -1,6 +1,5 @@
 package com.example.firebaseapp.home.delegate
 
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,7 +11,7 @@ import com.example.firebaseapp.home.adapter.BrandAdapter
 class HomeBrandDelegate (f: HomeFragment, vm: HomeViewModel) :
     BaseDelegate<HomeFragment, HomeViewModel>(f,vm) {
 
-    override fun onCreateView() {
+    override fun onViewCreated() {
         initBrand()
     }
 
@@ -20,9 +19,10 @@ class HomeBrandDelegate (f: HomeFragment, vm: HomeViewModel) :
         mFragment.mBinding?.progressBar2?.visibility = View.VISIBLE
         mViewModel.brands.observe(mFragment.viewLifecycleOwner, Observer {
             mViewModel.brandList.setData(it)
-            Log.i("HOANG", "initBrand: ${mViewModel.brandList.getSize()}")
             mFragment.mBinding?.recyclerViewBrand?.layoutManager = LinearLayoutManager(mActivity, LinearLayoutManager.HORIZONTAL, false)
-            mFragment.mBinding?.recyclerViewBrand?.adapter = BrandAdapter()
+            mFragment.mBinding?.recyclerViewBrand?.adapter = BrandAdapter().apply {
+                setData(mViewModel.brandList)
+            }
             mFragment.mBinding?.progressBar2?.visibility = View.GONE
         })
         mViewModel.loadBrands()

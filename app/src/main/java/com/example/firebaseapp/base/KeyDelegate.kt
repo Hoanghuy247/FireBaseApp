@@ -4,5 +4,9 @@ enum class KeyDelegate {
     //home
     HOME_BANNER,
     HOME_BRAND,
-    HOME_RECOMMENDATION
+    HOME_RECOMMENDATION,
+
+    //buy
+    SIZE,
+    COLOR
 }
